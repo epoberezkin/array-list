@@ -1,0 +1,48 @@
+name: array-list
+version: 0.1.0.0
+synopsis: IsList instances of Array for OverloadedLists extension
+
+description: |
+  This package provides "orphan" instances 'IsList' for 'Array' data types
+  with `Integral` indices up to 5 dimensions to allow initializing
+  'Array's from [nested] lists using 'OverloadedLists' GHC extension.
+
+github: epoberezkin/array-list
+homepage: https://github.com/epoberezkin/array-list#readme
+license: MIT
+author: Evgeny Poberezkin
+maintainer: evgeny@poberezkin.com
+copyright: 2020 Evgeny Poberezkin
+category: Data, Array, List
+extra-source-files:
+  - README.md
+  - CHANGELOG.md
+
+dependencies:
+  - base >= 4.7 && < 5
+  - array == 0.5.*
+
+library:
+  source-dirs: src
+
+tests:
+  array-list-test:
+    source-dirs: tests
+    main: Main.hs
+    dependencies:
+      - array-list
+      - hspec == 2.7.*
+  array-list-doctest:
+    source-dirs: tests
+    main: doctest-driver.hs
+    dependencies:
+      - doctest == 0.17.*
+      - doctest-driver-gen == 0.3.*
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Werror=incomplete-patterns
+  - -Wredundant-constraints
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
