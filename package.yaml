@@ -1,11 +1,14 @@
 name: array-list
-version: 0.1.0.0
+version: 0.2.0.0
 synopsis: IsList instances of Array for OverloadedLists extension
 
 description: |
-  This package provides "orphan" instances 'IsList' for 'Array' data types
+  This package provides "orphan" 'IsList' instances for 'Array' data types
   with `Integral` indices up to 5 dimensions to allow initializing
   'Array's from [nested] lists using 'OverloadedLists' GHC extension.
+  .
+  It also includes more generic 'arrayNestedList' and 'toNestedList'
+  functions to convert between nested lists and 'Array's with any indices.
 
 github: epoberezkin/array-list
 homepage: https://github.com/epoberezkin/array-list#readme
@@ -36,7 +39,7 @@ tests:
     source-dirs: tests
     main: doctest-driver.hs
     dependencies:
-      - doctest == 0.17.*
+      - doctest >= 0.16 && < 0.18
       - doctest-driver-gen == 0.3.*
 
 ghc-options:
